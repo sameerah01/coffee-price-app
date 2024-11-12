@@ -9,16 +9,6 @@ import { Coffee, Bean, IndianRupee, User, Phone, Package, Mail, MapPin } from 'l
 import Head from 'next/head'
 
 // Mock data for coffee prices (replace with actual data fetching in production)
-const coffeePrices = {
-  arabica: {
-    cherry: 550,
-    parchment: 725,
-  },
-  robusta: {
-    cherry: 475,
-    parchment: 650,
-  },
-}
 
 export function CoffeePriceAppComponent() {
   const [selectedCoffee, setSelectedCoffee] = useState('')
@@ -56,7 +46,7 @@ export function CoffeePriceAppComponent() {
     setShowBookingForm(false)
   }
 
-  const price = selectedCoffee && selectedProcessing ? coffeePrices[selectedCoffee][selectedProcessing] : null
+  const price = 400;
 
   return (
     <>
@@ -127,7 +117,7 @@ export function CoffeePriceAppComponent() {
 
                 {price !== null && (
                   <div className="mt-8 p-6 bg-[#fff8e7] rounded-lg shadow-inner">
-                    <h2 className="text-2xl font-semibold text-[#8b4513] mb-4">Today's Price</h2>
+                    <h2 className="text-2xl font-semibold text-[#8b4513] mb-4">Todays Price</h2>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <IndianRupee className="h-8 w-8 text-[#8b4513]" />
