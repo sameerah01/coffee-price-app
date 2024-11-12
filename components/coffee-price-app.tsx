@@ -17,10 +17,9 @@ export function CoffeePriceAppComponent() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [quantity, setQuantity] = useState('')
+  const [showPrice, setShowPrice] = useState(false);
 
   const handleCoffeeSelection = (value: string) => {
-    console.log(value)
-    
     setSelectedCoffee(value)
     setSelectedProcessing('')
     setShowBookingForm(false)
@@ -28,6 +27,7 @@ export function CoffeePriceAppComponent() {
 
   const handleProcessingSelection = (value: string) => {
     setSelectedProcessing(value)
+    setShowPrice(true);
     setShowBookingForm(false)
   }
 
@@ -115,14 +115,14 @@ export function CoffeePriceAppComponent() {
                   </div>
                 )}
 
-                {price !== null && (
+                {showPrice && (
                   <div className="mt-8 p-6 bg-[#fff8e7] rounded-lg shadow-inner">
                     <h2 className="text-2xl font-semibold text-[#8b4513] mb-4">Todays Price</h2>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <IndianRupee className="h-8 w-8 text-[#8b4513]" />
-                        <span className="text-4xl font-bold text-[#8b4513]">{price.toFixed(2)}</span>
-                        <span className="text-xl text-[#a0522d]">per kg</span>
+                        <IndianRupee className="h-4 w-4 text-[#8b4513]" />
+                        <span className="text-xl font-bold text-[#8b4513]">{price.toFixed(2)}</span>
+                        <span className="text-sm text-[#a0522d]">per kg</span>
                       </div>
                       <Button onClick={handleBookNow} className="bg-[#8b4513] hover:bg-[#a0522d] text-white">
                         Book Now
